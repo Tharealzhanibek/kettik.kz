@@ -1,0 +1,16 @@
+<div *ngFor="let event of events;" class="prod">
+  <div class="image">
+    <img [src]="event.image">
+  </div>
+  <div class="item-info">
+    <h3>
+      <a [title]="event.title + ' details'" [routerLink]="['/events', event.id]">
+        {{ event.title }}
+      </a>
+    </h3>
+  
+    <p>
+      {{ event.start_datetime }} - {{ event.location }}
+    </p>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+li{
+    list-style: none;
+}
+
+a, a:active{
+    text-decoration: none;
+    color: black;
+}
+
+.head{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5%;
+}
+
+ul{
+    display: flex;
+}
+
+li{
+    cursor: pointer;
+    padding: 15px 32px;
+    transition: all 250ms;
+}
+
+a:hover{
+    color: brown;
+}
+
+.logo{
+    cursor: pointer;
+    color: red;
+}
