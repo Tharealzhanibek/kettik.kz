@@ -12,17 +12,15 @@ export class EventService {
   constructor(private client: HttpClient) { }
 
   getEvents(): Observable<Event[]> {
-    return this.client.get<Event[]>(this.JSON_URL);
+    return this.client.get<Event[]>(`${this.JSON_URL}/events/`);
   }
 
   getEvent(id: number): Observable<Event> {
-    console.log(`${this.JSON_URL}/events/${id}`)
-    return this.client.get<Event>(`${this.JSON_URL}/events/${id}`);
+    return this.client.get<Event>(`${this.JSON_URL}/events/${id}/`);
   }
 
   bookEvent(formData: BookRequest): Observable<any> {
     const data = { event_id: formData.event_id, num_tickets: formData.num_tickets };
-    console.log(data)
     const headers = new HttpHeaders({
       'Content-Type': 'application/json; charset=utf-8'
     });

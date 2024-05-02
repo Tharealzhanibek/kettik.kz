@@ -12,8 +12,8 @@ def event_list(request):
              'location': event.location, 'seats_available': event.seats_available, 'image': event.image} for event in events]
     return JsonResponse(data, safe=False)
 
-def event_detail(request, event_id):
-    event = get_object_or_404(Event, pk=event_id)
+def event_detail(request, id):
+    event = get_object_or_404(Event, pk=id)
     data = event.to_dict()
     return JsonResponse(data)
 
