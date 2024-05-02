@@ -4,7 +4,7 @@ li{
 
 a, a:active{
     text-decoration: none;
-    color: black;
+    color: red;
 }
 
 .head{
@@ -23,9 +23,6 @@ li{
     transition: all 250ms;
 }
 
-a:hover{
-    color: brown;
-}
 
 .logo{
     cursor: pointer;
