@@ -38,7 +38,10 @@
         </div>
       </div>
       <div class="booking">
-        <form (ngSubmit)="onSubmit()">
+        <div class="seats_available">
+          <h6>{{event.seats_available}}</h6>
+        </div>
+        <form *ngIf="event.seats_available" (ngSubmit)="onSubmit()">
           <div class="form-group">
             <label for="numTickets">Количество билетов:</label>
             <input type="number" class="form-control" id="numTickets" name="numTickets" [(ngModel)]="formData.num_tickets" required>

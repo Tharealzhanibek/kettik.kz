@@ -24,6 +24,7 @@ export class EventsComponent implements OnInit {
         };
       });
     });
+    console.log(this.events);
   }
 
   formatDate(dateString: string): string {

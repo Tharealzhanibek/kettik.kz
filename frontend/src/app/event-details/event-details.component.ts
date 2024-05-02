@@ -33,6 +33,7 @@ onSubmit(): void {
   this.formData.event_id = this.event.id
   this.eventService.bookEvent(this.formData).subscribe(response => {
   alert(response.message)
+  location.reload();
   });
 }
 
