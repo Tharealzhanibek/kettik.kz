@@ -5,7 +5,9 @@
 
   <div class="details">
     <div class="left">
-      <p>{{event.description}}</p>
+      <div class="p">
+        <p>{{event.description}}</p>
+      </div>
     </div>
     <div class="right">
       <div class="table">
@@ -13,44 +15,36 @@
           <h2>{{formatDate(event.start_datetime)}}</h2>
         </div>
         <div *ngIf="event.location" style="color: rgba(0, 0, 0, 0.7);" class="tables">
-          <svg class="svg-icon svg-icon--location">
-            <use xlink:href="https://sxodim.com/app/images/sprite.svg#location"></use>
-          </svg>
           <h6>{{event.location}}</h6>
         </div>
         <div *ngIf="event.start_datetime" style="color: rgba(0, 0, 0, 0.7);" class="tables">
-          <svg class="svg-icon svg-icon--time">
-            <use xlink:href="https://sxodim.com/app/images/sprite.svg#time"></use>
-          </svg>
           <h6>{{formatTime(event.start_datetime)}}</h6>
         </div>
         <div *ngIf="event.phone_number" style="color: rgba(0, 0, 0, 0.7);" class="tables">
-          <svg class="svg-icon svg-icon--phone">
-            <use xlink:href="https://sxodim.com/app/images/sprite.svg#phone"></use>
-          </svg>
           <h6>{{event.phone_number}}</h6>
         </div>
         <div *ngIf="event.social_media_url" style="color: rgba(0, 0, 0, 0.7);" class="tables">
-          <svg class="svg-icon svg-icon--phone">
-            <use xlink:href="https://sxodim.com/app/images/sprite.svg#link"></use>
-          </svg>
-          <a [href]="event.social_media_url">URL</a>
+          <a [href]="event.social_media_url">Ссылка на событие</a>
         </div>
-      </div>
-      <div class="booking">
-        <div class="seats_available">
-          <h6>{{event.seats_available}}</h6>
+
+        <div *ngIf="event.social_media_url" style="color: rgba(0, 0, 0, 0.7);" class="tables">
+          <h6>{{event.seats_available}} мест</h6>
         </div>
-        <form *ngIf="event.seats_available" (ngSubmit)="onSubmit()">
-          <div class="form-group">
-            <label for="numTickets">Количество билетов:</label>
-            <input type="number" class="form-control" id="numTickets" name="numTickets" [(ngModel)]="formData.num_tickets" required>
-          </div>
-          <button type="submit" class="btn btn-primary">Забронировать</button>
-        </form>
       </div>
     </div>
   </div>
   
-</div>
   
+</div>
+<div class="form">
+  <div class="book-title">
+    <h4>Бронь билетов</h4>
+  </div>
+  <form *ngIf="event.seats_available" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="numTickets">Количество билетов:</label>
+      <input type="number" class="form-control" id="numTickets" name="numTickets" [(ngModel)]="formData.num_tickets" required>
+    </div>
+    <button type="submit" class="btn">Забронировать</button>
+  </form>
+</div>
